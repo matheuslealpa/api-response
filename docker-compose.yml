@@ -1,16 +1,16 @@
 version: "2.4"
 services:
-  criteria-tools-lab-postgres:
+  api-response-postgres:
     image: postgres:14.9
-    container_name: criteria-tools-lab-postgres14.9
+    container_name: api-response-postgres14.9
     environment:
-      - POSTGRES_USER=criteria-tools-lab
-      - POSTGRES_PASSWORD=criteria-tools-lab
+      - POSTGRES_USER=api-response
+      - POSTGRES_PASSWORD=api-response
       - POSTGRES_DB=postgres
     ports:
       - '5432:5432'
     networks:
-      - criteria-tools-lab-net
+      - api-response-net
 networks:
-  criteria-tools-lab-net:
-    name: criteria-tools-lab-net
+  api-response-net:
+    name: api-response-net

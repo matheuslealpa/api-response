@@ -1,4 +1,4 @@
-package br.com.matheusleal.apiresponse.app.domain.model;
+package br.com.matheusleal.apiresponse.app.response;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -12,18 +12,20 @@ public class ApiResponse<T> {
     private T data;
     private String message;
     private boolean success;
+    private int code;
 
-    public ApiResponse(T data, String message, boolean success) {
+    public ApiResponse(T data, String message, boolean success, int code) {
         this.data = data;
         this.message = message;
         this.success = success;
+        this.code = code;
     }
 
-    public static <T> ApiResponse<T> success(T data) {
-        return new ApiResponse<>(data, "Success", true);
+    public static <T> ApiResponse<T> success(T data, int code) {
+        return new ApiResponse<>(data, "Success", true, code);
     }
 
-    public static <T> ApiResponse<T> failure(String message) {
-        return new ApiResponse<>(null, message, false);
+    public static <T> ApiResponse<T> failure(String message, int code) {
+        return new ApiResponse<>(null, message, false, code);
     }
 }
